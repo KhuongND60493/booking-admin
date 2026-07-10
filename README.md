@@ -1,32 +1,35 @@
-# React + TypeScript + Vite
+# booking-admin
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Remote micro-frontend demo cho resto (`skyresto-webman`), expose qua Module Federation.
 
-Currently, two official plugins are available:
+- Next.js (Pages Router) + `output: 'export'` — build ra static HTML/JS/CSS thuần, không cần server runtime lúc chạy
+- Module Federation qua webpack `ModuleFederationPlugin` gốc (`next.config.js`), expose `ReservationsPage` và `TablesPage`
+- Dữ liệu hiển thị là mock (`mocks/`), không gọi API thật
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Chạy standalone
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+pnpm install
+pnpm dev        # http://localhost:3001
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Build (static export + registry.json)
+
+```bash
+pnpm build      # sinh public/registry.json rồi next build --output export
+```
+
+Output nằm ở `out/` — deploy thẳng thư mục này lên bất kỳ static host/CDN nào (Vercel, S3, Cloudflare Pages...).
+
+## Version / registry
+
+- `registry.source.json` (commit vào git) — nguồn `stable` version mà **resto luôn đọc lúc runtime**
+- `public/registry.json` (sinh tự động lúc build, không commit) — kết hợp `latest` (bản build hiện tại) và `stable` (từ `registry.source.json`)
+- Muốn resto nhận version mới: `pnpm promote <version>` rồi commit + push (build/deploy lại)
+
+## Lưu ý kỹ thuật quan trọng
+
+`shared.react` / `shared.react-dom` trong `next.config.js` **không được set `eager: true`** —
+đã verify thực tế: bật `eager: true` khiến `@module-federation/runtime` (package host đang
+dùng để consume remote) lỗi `RUNTIME-001: Failed to get remoteEntry exports` khi gọi
+`loadRemote()`. Tắt `eager` thì `loadRemote()` hoạt động đúng, trả về `{ default: Component }`.

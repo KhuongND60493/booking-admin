@@ -1,7 +1,7 @@
-import { mockReservations } from '../mocks/reservations.mock'
+import { mockReservations } from '../../mocks/reservations.mock'
 
-interface RemoteProps {
-  tenantId: string
+interface Props {
+  tenantId: string;
 }
 
 const statusLabel: Record<string, string> = {
@@ -10,9 +10,14 @@ const statusLabel: Record<string, string> = {
   cancelled: 'Đã huỷ',
 }
 
-export default function ReservationsPage({ tenantId }: RemoteProps) {
+/**
+ * Component này được expose ra qua remoteEntry.js (xem next.config.js -> exposes).
+ * Khi nhúng vào resto, nó chạy TRONG cây React của resto (mount runtime),
+ * không phải iframe, không phải full page reload.
+ */
+export default function ReservationsPage({ tenantId }: Props) {
   return (
-    <div style={{ padding: 24, fontFamily: 'sans-serif' }}>
+    <div style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
       <h2>Đặt bàn (demo)</h2>
       <p style={{ color: '#666', fontSize: 13 }}>tenantId: {tenantId}</p>
       <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 16 }}>

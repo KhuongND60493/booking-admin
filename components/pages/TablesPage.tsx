@@ -1,7 +1,7 @@
-import { mockTables } from '../mocks/tables.mock'
+import { mockTables } from '../../mocks/tables.mock'
 
-interface RemoteProps {
-  tenantId: string
+interface Props {
+  tenantId: string;
 }
 
 const statusColor: Record<string, string> = {
@@ -16,9 +16,9 @@ const statusLabel: Record<string, string> = {
   reserved: 'Đã đặt',
 }
 
-export default function TablesPage({ tenantId }: RemoteProps) {
+export default function TablesPage({ tenantId }: Props) {
   return (
-    <div style={{ padding: 24, fontFamily: 'sans-serif' }}>
+    <div style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
       <h2>Sơ đồ bàn (demo)</h2>
       <p style={{ color: '#666', fontSize: 13 }}>tenantId: {tenantId}</p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 12, marginTop: 16 }}>
