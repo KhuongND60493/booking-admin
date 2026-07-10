@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Table, Button, Modal } from "antd";
 import type { ColumnsType } from "antd/es/table";
 import { useAdminWaitlist } from "@skybooking/hooks";
+import { AdminQueryProvider } from "@skybooking/hooks/admin";
 import type { WaitlistEntry } from "@skybooking/api-client";
 import { useTranslation } from "@/app/i18n/client";
 import { useErrorToast } from "@/app/hooks/useErrorToast";
@@ -11,7 +12,20 @@ import {PropsRemotePageDefault} from "@/containers/types";
 
 const DEMO_STORE_ID = "cuu-van-long-q1";
 
-export default function WaitlistPage({ tenantId, locale, parentPage = -1 }: PropsRemotePageDefault) {
+// Khi expose qua Module Federation, resto mount thẳng component này vào cây React của
+// nó — không đi qua app/layout.tsx của booking-admin, nên AdminQueryProvider (đang bọc
+// toàn app lúc chạy standalone) không có sẵn. Bọc riêng ở đây để component tự đủ
+// QueryClient dù chạy trong cây nào. QueryClientProvider lồng nhau là an toàn (không lỗi)
+// nên không ảnh hưởng khi chạy standalone (đã có AdminQueryProvider ở app/layout.tsx).
+export default function WaitlistPage(props: PropsRemotePageDefault) {
+    return (
+        <AdminQueryProvider>
+            <WaitlistPageInner {...props} />
+        </AdminQueryProvider>
+    );
+}
+
+function WaitlistPageInner({ tenantId, locale, parentPage = -1 }: PropsRemotePageDefault) {
     const { t } = useTranslation("waitlist");
     const { entries, isLoading, error, convertingId, openConvert, dismissConvert, confirmConvert } =
         useAdminWaitlist(DEMO_STORE_ID);
