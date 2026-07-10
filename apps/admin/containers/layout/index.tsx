@@ -2,9 +2,18 @@ import Link from "next/link";
 import { PAGE_KEYS } from "@skybooking/api-client";
 import { PAGE_LABELS } from "./pageLabels";
 import {PropsRemotePageDefault} from "@/containers/types";
+import { RemoteProviders } from "@/containers/RemoteProviders";
 
 
 export default function EditLayoutIndexPage(props: PropsRemotePageDefault) {
+    return (
+        <RemoteProviders parentPage={props.parentPage}>
+            <EditLayoutIndexPageInner />
+        </RemoteProviders>
+    );
+}
+
+function EditLayoutIndexPageInner() {
     return (
         <div className="p-8">
             <h1 className="font-heading text-xl font-bold text-gray-900 mb-1">Chỉnh sửa layout trang booking</h1>

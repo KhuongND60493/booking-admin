@@ -1,11 +1,7 @@
 import { mockBookingList } from '../../mocks/booking-list.mock'
 import { t } from '../../lib/i18n/translate'
-
-interface Props {
-    tenantId: string
-    locale?: string
-    parentPage?: number
-}
+import { PropsRemotePageDefault } from '@/containers/types'
+import { RemoteProviders } from '@/containers/RemoteProviders'
 
 const statusKey: Record<string, string> = {
     confirmed: 'booking_status_confirmed',
@@ -13,7 +9,15 @@ const statusKey: Record<string, string> = {
     cancelled: 'booking_status_cancelled',
 }
 
-export default function BookingListPage({ tenantId, locale, parentPage = -1 }: Props) {
+export default function BookingListPage(props: PropsRemotePageDefault) {
+    return (
+        <RemoteProviders parentPage={props.parentPage}>
+            <BookingListPageInner {...props} />
+        </RemoteProviders>
+    )
+}
+
+function BookingListPageInner({ tenantId, locale, parentPage = -1 }: PropsRemotePageDefault) {
     return (
         <div style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
             <h2>{t(locale, 'booking_list_title')}</h2>
