@@ -6,9 +6,9 @@ import { useTranslation } from "../i18n/client";
 import { LanguageSwitcher } from "../i18n/LanguageSwitcher";
 
 const MENUS = [
-  { href: "/bookings/list", labelKey: "menu.bookings" },
+  { href: "/bookings", labelKey: "menu.bookings" },
   { href: "/waitlist", labelKey: "menu.waitlist" },
-  { href: "/bookings/layout", labelKey: "menu.editLayout" },
+  { href: "/edit-layout", labelKey: "menu.editLayout" },
 ];
 
 export function AdminSidebar() {

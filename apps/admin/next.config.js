@@ -27,9 +27,9 @@ module.exports = (phase) => ({
         name: 'bookingAdmin',
         filename: `static/chunks/remoteEntry.${REMOTE_VERSION}.js`,
         exposes: {
-          './BookingListPage': './components/pages/BookingListPage.tsx',
-          './WaitlistPage': './components/pages/WaitlistPage.tsx',
-          './LayoutEditorPage': './components/pages/LayoutEditorPage.tsx',
+          './BookingListPage': './containers/bookings/index.tsx',
+          './WaitlistPage': './containers/waitlist/index.tsx',
+          './LayoutEditorPage': './containers/layout/index.tsx',
         },
         shared: {
           react: { singleton: true, requiredVersion: false },

@@ -28,7 +28,7 @@ export function getConfigForPage(page: PageKey): Config<any> {
 // Danh sách component + props mặc định khi store chưa từng publish config cho
 // trang này — khớp defaultProps đã khai báo trong từng pages/*.config.tsx.
 // Mỗi trang giờ có NHIỀU component mặc định (đã chia nhỏ theo khối UI — SPEC
-// bookings-responsive-components-theme-config), thứ tự trong mảng = thứ tự hiển thị.
+// bookings-responsive-containers-theme-config), thứ tự trong mảng = thứ tự hiển thị.
 const DEFAULT_COMPONENTS: Record<PageKey, { type: string; props: Record<string, unknown> }[]> = {
   home: [
     { type: "PageHeader1", props: { heading: "Cửu Vân Long", subheading: "Chọn nhà hàng để đặt bàn" } },
