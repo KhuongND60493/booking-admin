@@ -1,5 +1,4 @@
 {
-  "buildCommand": "pnpm build:production",
   "headers": [
     {
       "source": "/registry.json",
