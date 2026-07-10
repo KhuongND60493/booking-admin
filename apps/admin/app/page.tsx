@@ -5,7 +5,7 @@ export default function Home() {
       <p>App này có thể chạy độc lập, hoặc bị resto nhúng qua Module Federation.</p>
       <ul>
         <li><a href="/bookings/list">Danh sách booking (standalone)</a></li>
-        <li><a href="/bookings/waitlist">Waitlist (standalone)</a></li>
+        <li><a href="/waitlist">Waitlist (standalone)</a></li>
         <li><a href="/bookings/layout">Chỉnh sửa layout booking (standalone)</a></li>
       </ul>
     </div>

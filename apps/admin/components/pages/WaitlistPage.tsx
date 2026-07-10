@@ -1,49 +1,111 @@
-import { mockWaitlist } from '../../mocks/waitlist.mock'
-import { t } from '../../lib/i18n/translate'
+"use client";
 
-interface Props {
-  tenantId: string
-  locale?: string
-  parentPage?: number
-}
+import { useState } from "react";
+import { Table, Button, Modal } from "antd";
+import type { ColumnsType } from "antd/es/table";
+import { useAdminWaitlist } from "@skybooking/hooks";
+import type { WaitlistEntry } from "@skybooking/api-client";
+import { useTranslation } from "@/app/i18n/client";
+import { useErrorToast } from "@/app/hooks/useErrorToast";
+import {PropsRemotePageDefault} from "@/components/pages/types";
 
-const statusKey: Record<string, string> = {
-  waiting: 'waitlist_status_waiting',
-  notified: 'waitlist_status_notified',
-  seated: 'waitlist_status_seated',
-  cancelled: 'waitlist_status_cancelled',
-}
+const DEMO_STORE_ID = "cuu-van-long-q1";
 
-export default function WaitlistPage({ tenantId, locale, parentPage = -1 }: Props) {
+export default function WaitlistPage({ tenantId, locale, parentPage = -1 }: PropsRemotePageDefault) {
+  const { t } = useTranslation("waitlist");
+  const { entries, isLoading, error, convertingId, openConvert, dismissConvert, confirmConvert } =
+      useAdminWaitlist(DEMO_STORE_ID);
+  useErrorToast(error);
+  const [isConverting, setIsConverting] = useState(false);
+
+  const entry = entries.find((e) => e.id === convertingId);
+
+  const handleConfirm = async () => {
+    setIsConverting(true);
+    await confirmConvert([]);
+    setIsConverting(false);
+  };
+
+  const columns: ColumnsType<WaitlistEntry> = [
+    {
+      title: t("column.id"),
+      dataIndex: "id",
+      key: "id",
+      width: 90,
+      render: (id: string) => <span className="font-mono text-admin-muted-soft text-xs">{id}</span>,
+    },
+    {
+      title: t("column.customer"),
+      key: "customer",
+      render: (_, w) => <span className="font-medium text-admin-ink">{w.customer.name}</span>,
+    },
+    { title: t("column.phone"), key: "phone", render: (_, w) => w.customer.phone },
+    {
+      title: t("column.preferredTime"),
+      dataIndex: "preferredTime",
+      key: "preferredTime",
+      render: (time: string) => <span className="font-semibold text-admin-ink">{time}</span>,
+    },
+    {
+      title: t("column.partySize"),
+      dataIndex: "partySize",
+      key: "partySize",
+      render: (p: number) => <span className="font-semibold text-admin-ink">{p}</span>,
+    },
+    {
+      title: t("column.actions"),
+      key: "actions",
+      render: (_, w) => (
+          <Button size="small" onClick={() => openConvert(w.id)}>
+            {t("convert")}
+          </Button>
+      ),
+    },
+  ];
+
   return (
-    <div style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
-      <h2>{t(locale, 'waitlist_title')}</h2>
-      <p style={{ color: '#666', fontSize: 13 }}>
-        {t(locale, 'tenant_id_label')}: {tenantId} — {t(locale, 'parent_page_label')}: {parentPage} —{' '}
-        {t(locale, 'app_env_label')}: {process.env.NEXT_PUBLIC_APP_ENV ?? 'unknown'}
-      </p>
-      <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 16 }}>
-        <thead>
-          <tr style={{ textAlign: 'left', borderBottom: '1px solid #ddd' }}>
-            <th style={{ padding: 8 }}>{t(locale, 'waitlist_col_guest')}</th>
-            <th style={{ padding: 8 }}>{t(locale, 'waitlist_col_requested_time')}</th>
-            <th style={{ padding: 8 }}>{t(locale, 'waitlist_col_party_size')}</th>
-            <th style={{ padding: 8 }}>{t(locale, 'waitlist_col_waiting_since')}</th>
-            <th style={{ padding: 8 }}>{t(locale, 'waitlist_col_status')}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {mockWaitlist.map((w) => (
-            <tr key={w.id} style={{ borderBottom: '1px solid #eee' }}>
-              <td style={{ padding: 8 }}>{w.guestName}</td>
-              <td style={{ padding: 8 }}>{w.requestedTime}</td>
-              <td style={{ padding: 8 }}>{w.partySize}</td>
-              <td style={{ padding: 8 }}>{w.waitingSince}</td>
-              <td style={{ padding: 8 }}>{t(locale, statusKey[w.status])}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
+      <div className="p-8">
+        <h1 className="font-heading text-xl font-bold text-admin-ink mb-1">{t("title")}</h1>
+        <p className="text-xs text-admin-muted mb-6">{t("waitingCount", { count: entries.length })}</p>
+
+        <Table<WaitlistEntry>
+            rowKey="id"
+            columns={columns}
+            dataSource={entries}
+            loading={isLoading}
+            pagination={{ pageSize: 10, hideOnSinglePage: true }}
+            locale={{ emptyText: t("empty") }}
+        />
+
+        <Modal
+            open={!!entry}
+            onCancel={dismissConvert}
+            title={t("convertModal.title")}
+            okText={t("convertModal.ok")}
+            cancelText={t("convertModal.cancel")}
+            confirmLoading={isConverting}
+            onOk={handleConfirm}
+        >
+          {entry && (
+              <>
+                <p className="text-xs text-admin-muted mb-4">{t("convertModal.desc")}</p>
+                <div className="bg-admin-bg rounded-lg p-3.5 space-y-1.5 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-admin-muted">{t("convertModal.customer")}</span>
+                    <span className="font-medium text-admin-ink">{entry.customer.name}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-admin-muted">{t("convertModal.phone")}</span>
+                    <span className="text-admin-ink">{entry.customer.phone}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-admin-muted">{t("convertModal.partySize")}</span>
+                    <span className="text-admin-ink">{t("convertModal.people", { count: entry.partySize })}</span>
+                  </div>
+                </div>
+              </>
+          )}
+        </Modal>
+      </div>
+  );
 }
