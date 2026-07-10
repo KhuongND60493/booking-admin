@@ -29,7 +29,8 @@ export default function LayoutEditorPage({ tenantId, locale, parentPage = -1 }: 
         </button>
       </div>
       <p style={{ color: '#666', fontSize: 13 }}>
-        {t(locale, 'tenant_id_label')}: {tenantId} — {t(locale, 'parent_page_label')}: {parentPage}
+        {t(locale, 'tenant_id_label')}: {tenantId} — {t(locale, 'parent_page_label')}: {parentPage} —{' '}
+        {t(locale, 'app_env_label')}: {process.env.NEXT_PUBLIC_APP_ENV ?? 'unknown'}
       </p>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', gap: 12, marginTop: 16 }}>
         {mockLayoutTables.map((tbl) => (

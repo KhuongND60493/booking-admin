@@ -18,7 +18,8 @@ export default function BookingListPage({ tenantId, locale, parentPage = -1 }: P
     <div style={{ padding: 24, fontFamily: 'system-ui, sans-serif' }}>
       <h2>{t(locale, 'booking_list_title')}</h2>
       <p style={{ color: '#666', fontSize: 13 }}>
-        {t(locale, 'tenant_id_label')}: {tenantId} — {t(locale, 'parent_page_label')}: {parentPage}
+        {t(locale, 'tenant_id_label')}: {tenantId} — {t(locale, 'parent_page_label')}: {parentPage} —{' '}
+        {t(locale, 'app_env_label')}: {process.env.NEXT_PUBLIC_APP_ENV ?? 'unknown'}
       </p>
       <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: 16 }}>
         <thead>

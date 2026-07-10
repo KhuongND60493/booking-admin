@@ -4,6 +4,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
   vi: {
     tenant_id_label: 'tenantId',
     parent_page_label: 'parentPage',
+    app_env_label: 'Môi trường build',
 
     booking_list_title: 'Danh sách booking',
     booking_list_col_guest: 'Khách',
@@ -37,6 +38,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
   en: {
     tenant_id_label: 'tenantId',
     parent_page_label: 'parentPage',
+    app_env_label: 'Build environment',
 
     booking_list_title: 'Booking List',
     booking_list_col_guest: 'Guest',
