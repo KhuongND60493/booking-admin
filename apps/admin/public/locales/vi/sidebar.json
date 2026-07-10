@@ -1,0 +1,8 @@
+{
+  "brandSubtitle": "Admin Portal",
+  "menu": {
+    "bookings": "Danh sách booking",
+    "waitlist": "Waitlist",
+    "editLayout": "Chỉnh sửa layout trang booking"
+  }
+}

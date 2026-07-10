@@ -1,0 +1,24 @@
+{
+  "title": "Danh sách chờ (Waitlist)",
+  "waitingCount": "{{count}} khách đang chờ xử lý",
+  "empty": "Không có ai đang chờ.",
+  "convert": "Convert →",
+  "column": {
+    "id": "Mã",
+    "customer": "Khách hàng",
+    "phone": "SĐT",
+    "preferredTime": "Giờ",
+    "partySize": "Khách",
+    "actions": "Hành động"
+  },
+  "convertModal": {
+    "title": "Convert → Booking",
+    "ok": "Chọn bàn →",
+    "cancel": "Hủy",
+    "desc": "Kiểm tra khả dụng bàn trước khi chuyển đổi",
+    "customer": "Khách hàng",
+    "phone": "SĐT",
+    "partySize": "Số khách",
+    "people": "{{count}} người"
+  }
+}

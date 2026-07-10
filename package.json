@@ -1,26 +1,16 @@
 {
-  "name": "booking-admin",
+  "name": "skybooking-webman",
+  "version": "0.1.0",
   "private": true,
-  "version": "1.1.0",
+  "packageManager": "yarn@1.22.22",
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
-    "dev": "node scripts/generate-registry.js && next dev -p 3001",
-    "build": "node scripts/generate-registry.js && next build",
-    "build:develop": "env-cmd -f .env.develop node scripts/generate-registry.js && env-cmd -f .env.develop next build",
-    "build:staging": "env-cmd -f .env.staging node scripts/generate-registry.js && env-cmd -f .env.staging next build",
-    "build:production": "env-cmd -f .env.production node scripts/generate-registry.js && env-cmd -f .env.production next build",
-    "promote": "node scripts/promote.js",
-    "start": "next start -p 3001"
-  },
-  "dependencies": {
-    "next": "15.1.9",
-    "react": "19.2.1",
-    "react-dom": "19.2.1"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint"
   },
   "devDependencies": {
-    "@types/node": "^24",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "env-cmd": "^11.0.0",
-    "typescript": "~6.0.2"
+    "turbo": "^2.0.0",
+    "typescript": "^5"
   }
 }

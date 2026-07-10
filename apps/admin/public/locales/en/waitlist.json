@@ -1,0 +1,24 @@
+{
+  "title": "Waitlist",
+  "waitingCount": "{{count}} guests waiting",
+  "empty": "No one is waiting.",
+  "convert": "Convert →",
+  "column": {
+    "id": "ID",
+    "customer": "Customer",
+    "phone": "Phone",
+    "preferredTime": "Time",
+    "partySize": "Guests",
+    "actions": "Action"
+  },
+  "convertModal": {
+    "title": "Convert → Booking",
+    "ok": "Select table →",
+    "cancel": "Cancel",
+    "desc": "Check table availability before converting",
+    "customer": "Customer",
+    "phone": "Phone",
+    "partySize": "Party size",
+    "people": "{{count}} people"
+  }
+}

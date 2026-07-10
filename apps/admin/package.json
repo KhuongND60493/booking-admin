@@ -1,0 +1,45 @@
+{
+  "name": "booking-admin",
+  "private": true,
+  "version": "1.1.0",
+  "scripts": {
+    "dev": "node scripts/generate-registry.js && next dev -p 3001",
+    "build": "node scripts/generate-registry.js && next build",
+    "build:develop": "env-cmd -f .env.develop node scripts/generate-registry.js && env-cmd -f .env.develop next build",
+    "build:staging": "env-cmd -f .env.staging node scripts/generate-registry.js && env-cmd -f .env.staging next build",
+    "build:production": "env-cmd -f .env.production node scripts/generate-registry.js && env-cmd -f .env.production next build",
+    "promote": "node scripts/promote.js",
+    "start": "next start -p 3001"
+  },
+  "dependencies": {
+    "@measured/puck": "^0.18.3",
+    "@tanstack/react-query": "^5.59.0",
+    "@tanstack/react-query-devtools": "^5.59.0",
+    "@skybooking/api-client": "*",
+    "@skybooking/hooks": "*",
+    "@skybooking/puck-config": "*",
+    "@skybooking/ui": "*",
+    "antd": "^5.20.0",
+    "dayjs": "^1.11.13",
+    "i18next": "^23.15.1",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-resources-to-backend": "^1.2.1",
+    "lucide-react": "^0.454.0",
+    "next": "15.1.9",
+    "react-cookie": "^7.2.0",
+    "react-i18next": "^15.0.2",
+    "react": "19.2.1",
+    "react-dom": "19.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "env-cmd": "^11.0.0",
+    "autoprefixer": "^10.4.19",
+    "env-cmd": "^10.1.0",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5"
+  }
+}

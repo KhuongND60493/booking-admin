@@ -1,0 +1,163 @@
+{
+  "title": "Bookings",
+  "createNew": "+ New booking",
+  "empty": "No bookings yet.",
+  "kpi": {
+    "total": "Total bookings",
+    "confirmed": "Confirmed",
+    "cancelled": "Cancelled/No-show",
+    "waitlist": "Waitlist"
+  },
+  "filter": {
+    "searchPlaceholder": "Customer name, phone, or booking code",
+    "statuses": "Statuses",
+    "brands": "Brands",
+    "stores": "Stores",
+    "selectedCount": "{{count}} selected",
+    "clear": "Clear filters",
+    "noResults": "No results found",
+    "resetAll": "Reset",
+    "period": {
+      "today": "Today",
+      "thisWeek": "This week",
+      "thisMonth": "This month",
+      "thisYear": "This year"
+    }
+  },
+  "column": {
+    "id": "ID",
+    "customer": "Customer",
+    "phone": "Phone",
+    "store": "Restaurant",
+    "diningTime": "Time",
+    "tables": "Table(s)",
+    "partySize": "Party size",
+    "status": "Status",
+    "actions": "Actions"
+  },
+  "status": {
+    "draft": "Draft",
+    "pending": "Pending",
+    "confirmed": "Confirmed",
+    "checked-in": "Checked-in",
+    "seated": "Seated",
+    "completed": "Completed",
+    "cancelled": "Cancelled",
+    "no-show": "No-show",
+    "expired": "Expired"
+  },
+  "action": {
+    "confirm": "Confirm",
+    "checkIn": "Check-in",
+    "assignTable": "Assign table",
+    "cancel": "Cancel booking",
+    "confirmCancel": "Confirm cancel",
+    "noShow": "No-show",
+    "dismiss": "Back",
+    "viewDetail": "View detail",
+    "more": "More",
+    "confirmBookingTitle": "Confirm booking",
+    "confirmBookingContent": "Are you sure you want to CONFIRM this booking?",
+    "checkInTitle": "Confirm guest check-in",
+    "checkInContent": "Are you sure the guest has arrived for this booking?",
+    "confirmCancelTitle": "Cancel booking",
+    "confirmCancelContent": "Are you sure you want to CANCEL this booking?",
+    "noShowTitle": "Mark as no-show",
+    "noShowContent": "Are you sure the guest did NOT show up for this booking?"
+  },
+  "toast": {
+    "confirmSuccess": "Booking confirmed",
+    "checkInSuccess": "Guest checked in",
+    "assignTableSuccess": "Table(s) assigned to booking",
+    "cancelSuccess": "Booking cancelled",
+    "noShowSuccess": "Booking marked as no-show",
+    "actionError": "Action failed: {{error}}",
+    "createSuccess": "The booking has been created successfully",
+    "createError": "Failed to create the booking. Error: {{error}}",
+    "updateSuccess": "The booking has been updated successfully",
+    "updateError": "Failed to update the booking. Error: {{error}}",
+    "error": {
+      "notFound": "Booking not found",
+      "invalidTransition": "Invalid status transition",
+      "capacityExceeded": "Total table capacity is not enough for the party size",
+      "tableUnavailable": "Table unavailable or already booked at this time",
+      "incorrectPhone": "Invalid phone number",
+      "settingsMissing": "Missing booking settings for this store",
+      "tableRequired": "Assign a table before confirming this booking"
+    }
+  },
+  "new": {
+    "title": "New booking",
+    "subtitle": "Create on behalf of a customer — no OTP required",
+    "seats": "{{count}} seats",
+    "selectedSummary": "Selected: {{tables}} tables · {{seats}} seats",
+    "noOtp": "No OTP needed — Agent confirms directly",
+    "steps": {
+      "storeTime": "Restaurant & time",
+      "selectTable": "Select table",
+      "customerInfo": "Customer info",
+      "done": "Done"
+    },
+    "section": {
+      "bookingInfo": "Booking details",
+      "customerInfo": "Customer information",
+      "summary": "Summary"
+    },
+    "field": {
+      "brand": "Brand",
+      "store": "Store",
+      "date": "Dining date",
+      "partySize": "Party size",
+      "timeSlot": "Dining time",
+      "noTimeSlot": "No time slots left today",
+      "zone": "Zone",
+      "allZones": "All",
+      "noTables": "No tables match the selected time and party size.",
+      "selectToBrowseTables": "Select Store, Date, Time and Party size to browse zones & available tables.",
+      "tables": "Table(s)",
+      "tableLocked": "This table already has a booking at this time",
+      "notEnoughCapacity": "Not enough seats ({{total}}/{{needed}})",
+      "fullName": "Name *",
+      "phone": "Phone *",
+      "phoneInvalid": "Invalid phone number",
+      "email": "Email",
+      "emailInvalid": "Invalid email",
+      "note": "Note",
+      "noteChips": {
+        "hasChildren": "Has children",
+        "needsChildChair": "Needs child chair",
+        "needsBirthdayDecor": "Needs birthday decoration",
+        "weddingAnniversary": "Wedding anniversary",
+        "importantEvent": "Important event"
+      }
+    },
+    "action": {
+      "viewTables": "View available tables →",
+      "back": "← Back",
+      "enterCustomer": "Enter customer info →",
+      "confirm": "Confirm booking ✓"
+    },
+    "success": {
+      "title": "Booking created successfully!",
+      "subtitle": "The customer will receive an SMS confirmation shortly",
+      "codeLabel": "Booking code",
+      "backToList": "Back to list",
+      "createAnother": "+ Create another booking"
+    }
+  },
+  "detail": {
+    "editTitle": "Edit booking",
+    "viewTitle": "Booking detail",
+    "loading": "Loading...",
+    "notFound": "Booking not found.",
+    "back": "Back",
+    "save": "Save",
+    "cancel": "Cancel",
+    "stay": "Stay",
+    "exit": "Exit",
+    "confirmExitTitle": "Confirm exit",
+    "confirmExitContent": "You have unsaved changes. If you exit now, your changes will be lost.",
+    "bookingCode": "Booking code",
+    "createdAt": "Created at"
+  }
+}

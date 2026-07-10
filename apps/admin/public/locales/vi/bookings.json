@@ -1,0 +1,163 @@
+{
+  "title": "Danh sách đặt bàn",
+  "createNew": "+ Tạo booking mới",
+  "empty": "Chưa có booking nào.",
+  "kpi": {
+    "total": "Tổng booking",
+    "confirmed": "Đã xác nhận",
+    "cancelled": "Đã hủy/No-show",
+    "waitlist": "Waitlist chờ"
+  },
+  "filter": {
+    "searchPlaceholder": "Tên khách, SĐT hoặc mã booking",
+    "statuses": "Trạng thái",
+    "brands": "Thương hiệu",
+    "stores": "Nhà hàng",
+    "selectedCount": "{{count}} đã chọn",
+    "clear": "Xóa bộ lọc",
+    "noResults": "Không có kết quả",
+    "resetAll": "Đặt lại",
+    "period": {
+      "today": "Hôm nay",
+      "thisWeek": "Tuần này",
+      "thisMonth": "Tháng này",
+      "thisYear": "Năm nay"
+    }
+  },
+  "column": {
+    "id": "Mã",
+    "customer": "Khách hàng",
+    "phone": "SĐT",
+    "store": "Nhà hàng",
+    "diningTime": "Thời gian",
+    "tables": "Bàn",
+    "partySize": "Số khách",
+    "status": "Trạng thái",
+    "actions": "Tác vụ"
+  },
+  "status": {
+    "draft": "Nháp",
+    "pending": "Chờ xác nhận",
+    "confirmed": "Đã xác nhận",
+    "checked-in": "Đã check-in",
+    "seated": "Đã xếp bàn",
+    "completed": "Hoàn tất",
+    "cancelled": "Đã hủy",
+    "no-show": "Không đến",
+    "expired": "Hết hạn"
+  },
+  "action": {
+    "confirm": "Xác nhận",
+    "checkIn": "Check-in",
+    "assignTable": "Gán bàn",
+    "cancel": "Hủy booking",
+    "confirmCancel": "Xác nhận hủy",
+    "noShow": "Không đến",
+    "dismiss": "Quay lại",
+    "viewDetail": "Xem chi tiết",
+    "more": "Thêm",
+    "confirmBookingTitle": "Xác nhận đơn đặt bàn",
+    "confirmBookingContent": "Bạn có chắc chắn muốn XÁC NHẬN booking này?",
+    "checkInTitle": "Xác nhận khách đã check-in",
+    "checkInContent": "Bạn có chắc chắn khách đã đến cho booking này?",
+    "confirmCancelTitle": "Hủy đơn đặt bàn",
+    "confirmCancelContent": "Bạn có chắc chắn muốn HỦY booking này?",
+    "noShowTitle": "Đánh dấu không đến",
+    "noShowContent": "Bạn có chắc chắn khách KHÔNG ĐẾN cho booking này?"
+  },
+  "toast": {
+    "confirmSuccess": "Đã xác nhận booking",
+    "checkInSuccess": "Đã ghi nhận khách check-in",
+    "assignTableSuccess": "Đã gán bàn cho booking",
+    "cancelSuccess": "Đã hủy booking",
+    "noShowSuccess": "Đã đánh dấu khách không đến",
+    "actionError": "Thao tác thất bại: {{error}}",
+    "createSuccess": "Đơn đặt bàn đã được tạo thành công",
+    "createError": "Tạo đơn đặt bàn thất bại. Lỗi: {{error}}",
+    "updateSuccess": "Đơn đặt bàn đã được cập nhật thành công",
+    "updateError": "Cập nhật đơn đặt bàn thất bại. Lỗi: {{error}}",
+    "error": {
+      "notFound": "Booking không tồn tại",
+      "invalidTransition": "Chuyển trạng thái không hợp lệ",
+      "capacityExceeded": "Tổng sức chứa bàn không đủ cho số khách",
+      "tableUnavailable": "Bàn không khả dụng hoặc đang trùng giờ với booking khác",
+      "incorrectPhone": "Số điện thoại không hợp lệ",
+      "settingsMissing": "Thiếu cấu hình đặt bàn cho cửa hàng này",
+      "tableRequired": "Cần gán bàn trước khi xác nhận booking"
+    }
+  },
+  "new": {
+    "title": "Tạo booking mới",
+    "subtitle": "Tạo thay khách hàng — không cần OTP",
+    "seats": "{{count}} chỗ",
+    "selectedSummary": "Đã chọn: {{tables}} bàn · {{seats}} chỗ",
+    "noOtp": "Không cần OTP — Agent xác nhận trực tiếp",
+    "steps": {
+      "storeTime": "Nhà hàng & thời gian",
+      "selectTable": "Chọn bàn",
+      "customerInfo": "Thông tin khách",
+      "done": "Hoàn tất"
+    },
+    "section": {
+      "bookingInfo": "Thông tin đặt bàn",
+      "customerInfo": "Thông tin khách hàng",
+      "summary": "Tổng quan"
+    },
+    "field": {
+      "brand": "Thương hiệu",
+      "store": "Nhà hàng",
+      "date": "Ngày dùng bữa",
+      "partySize": "Số khách",
+      "timeSlot": "Giờ dùng bữa",
+      "noTimeSlot": "Không còn khung giờ trống hôm nay",
+      "zone": "Khu vực",
+      "allZones": "Tất cả",
+      "tables": "Bàn",
+      "noTables": "Không có bàn phù hợp cho khung giờ và số khách đã chọn.",
+      "selectToBrowseTables": "Chọn Nhà hàng, Ngày, Giờ và Số khách để xem sơ đồ khu vực & bàn trống.",
+      "tableLocked": "Bàn đã có booking tại thời điểm này",
+      "notEnoughCapacity": "Thiếu chỗ ({{total}}/{{needed}})",
+      "fullName": "Tên *",
+      "phone": "SĐT *",
+      "phoneInvalid": "Số điện thoại không hợp lệ",
+      "email": "Email",
+      "emailInvalid": "Email không hợp lệ",
+      "note": "Ghi chú",
+      "noteChips": {
+        "hasChildren": "Có trẻ em",
+        "needsChildChair": "Cần ghế trẻ em",
+        "needsBirthdayDecor": "Cần trang trí sinh nhật",
+        "weddingAnniversary": "Kỷ niệm ngày cưới",
+        "importantEvent": "Có sự kiện quan trọng"
+      }
+    },
+    "action": {
+      "viewTables": "Xem bàn trống →",
+      "back": "← Quay lại",
+      "enterCustomer": "Nhập thông tin khách →",
+      "confirm": "Xác nhận tạo booking ✓"
+    },
+    "success": {
+      "title": "Booking đã tạo thành công!",
+      "subtitle": "Khách hàng sẽ nhận SMS xác nhận ngay lập tức",
+      "codeLabel": "Mã booking",
+      "backToList": "Về danh sách",
+      "createAnother": "+ Tạo booking khác"
+    }
+  },
+  "detail": {
+    "editTitle": "Chỉnh sửa booking",
+    "viewTitle": "Chi tiết booking",
+    "loading": "Đang tải...",
+    "notFound": "Không tìm thấy booking.",
+    "back": "Quay lại",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "stay": "Ở lại",
+    "exit": "Thoát",
+    "confirmExitTitle": "Xác nhận thoát",
+    "confirmExitContent": "Bạn có thay đổi chưa được lưu. Nếu thoát bây giờ, các thay đổi sẽ bị mất.",
+    "bookingCode": "Mã booking",
+    "createdAt": "Thời gian tạo"
+  }
+}
