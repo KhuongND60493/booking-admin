@@ -1,12 +1,12 @@
 // Chạy trước "next build" (xem package.json). Sinh public/registry.json từ 2 nguồn:
-// - REMOTE_VERSION (env, version đang build) -> latest
+// - package.json "version" (bản đang build) -> latest
 // - registry.source.json (commit vào git, chỉ đổi qua scripts/promote.js) -> stable
 // resto luôn đọc "stable" lúc runtime nên release ở đây KHÔNG tự động ảnh hưởng resto,
 // phải promote thủ công mới đổi được version mà resto dùng.
 const fs = require('fs');
 const path = require('path');
 
-const REMOTE_VERSION = process.env.REMOTE_VERSION || '1.0.0';
+const REMOTE_VERSION = require('../package.json').version;
 
 const sourcePath = path.join(__dirname, '..', 'registry.source.json');
 const source = JSON.parse(fs.readFileSync(sourcePath, 'utf-8'));

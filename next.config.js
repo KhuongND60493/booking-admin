@@ -1,5 +1,5 @@
 const { PHASE_PRODUCTION_BUILD } = require('next/constants');
-const REMOTE_VERSION = process.env.REMOTE_VERSION || '1.0.0';
+const REMOTE_VERSION = require('./package.json').version;
 
 /** @type {(phase: string) => import('next').NextConfig} */
 module.exports = (phase) => ({
@@ -24,8 +24,9 @@ module.exports = (phase) => ({
         name: 'bookingAdmin',
         filename: `static/chunks/remoteEntry.${REMOTE_VERSION}.js`,
         exposes: {
-          './ReservationsPage': './components/pages/ReservationsPage.tsx',
-          './TablesPage': './components/pages/TablesPage.tsx',
+          './BookingListPage': './components/pages/BookingListPage.tsx',
+          './WaitlistPage': './components/pages/WaitlistPage.tsx',
+          './LayoutEditorPage': './components/pages/LayoutEditorPage.tsx',
         },
         shared: {
           react: { singleton: true, requiredVersion: false },
