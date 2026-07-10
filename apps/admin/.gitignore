@@ -1,0 +1,6 @@
+# Rule chung (node_modules, .next, out, .env*, .vercel, .idea, .mf, logs...) đã có ở
+# .gitignore gốc của monorepo — chỉ giữ ở đây rule riêng của app này.
+
+# Sinh tự động bởi scripts/generate-registry.js lúc build — không commit.
+# registry.source.json (nguồn "stable" thật sự) VẪN phải commit, không thêm vào đây.
+public/registry.json
