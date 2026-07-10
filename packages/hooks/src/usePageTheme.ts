@@ -4,13 +4,13 @@ import { useEffect } from "react";
 import type { StoreTheme } from "@skybooking/api-client";
 
 // Áp dụng theme (màu/font) nhận từ config lên DOM — theo BR-12
-// (SPEC-booking-multipage-admin-sidebar-rebuild): KHÔNG hardcode màu/font,
+// (SPEC-bookings-multipage-admin-sidebar-rebuild): KHÔNG hardcode màu/font,
 // toàn bộ giá trị đến từ StoreTheme do Server Component tải qua storeThemeApi
 // rồi truyền vào đây.
 //
 // `targetRef` optional: nếu có (vd: preview scoped trong admin), chỉ set CSS
 // variable lên phần tử đó (cascade xuống con); nếu không, set lên <html> —
-// dùng cho apps/booking, nơi toàn app chỉ thuộc 1 store.
+// dùng cho apps/bookings, nơi toàn app chỉ thuộc 1 store.
 export function usePageTheme(theme: StoreTheme | null, targetRef?: React.RefObject<HTMLElement>) {
   useEffect(() => {
     if (!theme) return;

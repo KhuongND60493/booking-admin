@@ -38,7 +38,7 @@ Nếu báo lỗi "not recognized" → tải Node.js LTS tại https://nodejs.org
 Trên máy dev (không phải máy 104):
 
 ```bash
-cd booking-admin
+cd bookings-admin
 pnpm build
 ```
 

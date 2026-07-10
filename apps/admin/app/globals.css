@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theo BR-12: --color-primary/--font-heading/--font-body ở đây CHỈ dùng cho
+   khu vực preview trong "Chỉnh sửa layout trang bookings" (component tái sử
+   dụng từ @skybooking/ui) — được set runtime theo store đang chỉnh (scoped),
+   KHÔNG áp dụng cho phần chrome cố định của admin (sidebar, bảng...), phần đó
+   dùng trực tiếp class Tailwind màu trung tính (gray/amber) không qua CSS var.
+   Giá trị trung tính dưới đây chỉ là fallback khi chưa có theme nào được set. */
+:root {
+  --color-primary: #6b7280;
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --font-heading: inherit;
+  --font-body: inherit;
+}
+
+body {
+  font-family: var(--font-public-sans), sans-serif;
+}

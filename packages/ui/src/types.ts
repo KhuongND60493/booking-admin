@@ -1,5 +1,5 @@
 // Type props chung cho từng nhóm màn hình (theo cấu trúc trang mới, đã chia
-// nhỏ theo khối UI — SPEC-booking-responsive-components-theme-config).
+// nhỏ theo khối UI — SPEC-bookings-responsive-components-theme-config).
 import type { Store } from "@skybooking/api-client";
 
 // Home

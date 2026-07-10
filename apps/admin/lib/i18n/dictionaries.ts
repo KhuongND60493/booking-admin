@@ -6,7 +6,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     parent_page_label: 'parentPage',
     app_env_label: 'Môi trường build',
 
-    booking_list_title: 'Danh sách booking',
+    booking_list_title: 'Danh sách bookings',
     booking_list_col_guest: 'Khách',
     booking_list_col_time: 'Giờ',
     booking_list_col_party_size: 'Số khách',
@@ -28,7 +28,7 @@ export const dictionaries: Record<Locale, Record<string, string>> = {
     waitlist_status_seated: 'Đã xếp bàn',
     waitlist_status_cancelled: 'Đã huỷ',
 
-    layout_title: 'Chỉnh sửa layout booking',
+    layout_title: 'Chỉnh sửa layout bookings',
     layout_capacity_suffix: 'chỗ',
     layout_status_available: 'Trống',
     layout_status_occupied: 'Đang dùng',
