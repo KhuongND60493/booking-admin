@@ -29,7 +29,11 @@ module.exports = (phase) => ({
         exposes: {
           './BookingListPage': './containers/bookings/index.tsx',
           './WaitlistPage': './containers/waitlist/index.tsx',
+          './TimeSlotsPage': './containers/time-slots/index.tsx',
+          './TablesPage': './containers/tables/index.tsx',
           './LayoutEditorPage': './containers/layout/index.tsx',
+          './SettingsPage': './containers/settings/index.tsx',
+          './BookingNewPage': './containers/bookings/new.tsx',
         },
         shared: {
           react: { singleton: true, requiredVersion: false },

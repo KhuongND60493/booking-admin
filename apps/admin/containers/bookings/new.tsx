@@ -20,8 +20,18 @@ import {
     BookingSummaryPanel,
 } from "./components";
 import { bookingErrorMessage } from "./utils/bookingErrorMessage";
+import { PropsRemotePageDefault } from "@/containers/types";
+import { RemoteProviders } from "@/containers/RemoteProviders";
 
-export default function CreateBookingPage() {
+export default function CreateBookingPage(props: PropsRemotePageDefault) {
+    return (
+        <RemoteProviders parentPage={props.parentPage}>
+            <CreateBookingPageInner />
+        </RemoteProviders>
+    );
+}
+
+function CreateBookingPageInner() {
     const { t } = useTranslation("bookings");
     const { message, modal } = App.useApp();
     const router = useRouter();
