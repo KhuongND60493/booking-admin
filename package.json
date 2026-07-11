@@ -5,6 +5,9 @@
   "packageManager": "yarn@1.22.22",
   "workspaces": ["apps/*", "packages/*"],
   "scripts": {
+    "c": "node scripts/clean.js",
+    "ci": "node scripts/clean.js --install",
+    "cih": "node scripts/clean.js --hard --install",
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint"
