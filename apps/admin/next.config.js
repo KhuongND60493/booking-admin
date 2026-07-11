@@ -36,13 +36,8 @@ module.exports = (phase) => ({
           './BookingNewPage': './containers/bookings/new.tsx',
         },
         shared: {
-          // eager: true để app chạy được standalone (Vercel) — Next.js không có async
-          // boundary tự nhiên trước khi main-app runtime require react/react-dom, nếu
-          // không eager sẽ ném "Shared module is not available for eager consumption".
-          // Khi nhúng qua host, host đã init share scope (webpack-remote-loader.js) trước
-          // khi container.get() chạy nên vẫn dùng lại đúng bản react của host (singleton).
-          react: { singleton: true, requiredVersion: false, eager: true },
-          'react-dom': { singleton: true, requiredVersion: false, eager: true },
+          react: { singleton: true, requiredVersion: false, eager: false },
+          'react-dom': { singleton: true, requiredVersion: false, eager: false },
         },
       })
     );
