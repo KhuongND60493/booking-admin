@@ -1,3 +1,0 @@
-# Nội dung build (out/) copy vào đây lúc test — không commit, chỉ giữ chỗ thư mục.
-booking-admin/*
-!booking-admin/.gitkeep
