@@ -178,7 +178,7 @@ function BookingListPageInner({ tenantId, locale, parentPage = -1 }: PropsRemote
         <div className="p-4">
             <div className="flex items-start justify-between mb-8">
                 <h1 className="font-heading text-xl font-bold text-admin-ink">
-                    {t("title")}- This is a demo version, some features may not work as expected
+                    {t("title")}- ABC
                 </h1>
                 {canCreate && (
                     <Link href="/bookings/new">
