@@ -15,9 +15,26 @@ function handleErrorResponse(error: unknown): never {
   throw error instanceof Error ? error : new Error(String(error));
 }
 
+function serializeParams(params: Record<string, unknown>): string {
+  const searchParams = new URLSearchParams();
+  for (const [key, value] of Object.entries(params)) {
+    if (value === undefined || value === null) continue;
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        if (item === undefined || item === null) continue;
+        searchParams.append(key, String(item));
+      }
+    } else {
+      searchParams.append(key, String(value));
+    }
+  }
+  return searchParams.toString();
+}
+
 export const apiClient = axios.create({
   baseURL: BASE_URL,
   timeout: 20000,
+  paramsSerializer: serializeParams,
 });
 
 apiClient.interceptors.request.use((config) => {

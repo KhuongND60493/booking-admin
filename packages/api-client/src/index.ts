@@ -13,6 +13,9 @@ export type {
   BookingTableAssignment,
   BookingStatusHistory,
   WaitlistEntry,
+  BookingTimeSlot,
+  BookingSetting,
+  BookingTableRow,
 } from "./types";
 export {
   PAGE_KEYS,
@@ -24,6 +27,10 @@ export {
   StoreStatus,
   STORE_STATUS_I18N_KEY,
   ALL_STORE_STATUSES,
+  BookingDayOfWeek,
+  ALL_BOOKING_DAYS_OF_WEEK,
+  ALL_BOOKING_DAYS_OF_WEEK_MASK,
+  BOOKING_DAY_OF_WEEK_I18N_KEY,
 } from "./types";
 
 export { ApiError } from "./http/apiError";
@@ -39,9 +46,24 @@ export {
   type CreateBookingPayload,
   type UpdateBookingBasicInfoPayload,
 } from "./bookings-api";
-export { bookingTablesApi } from "./booking-tables-api";
+export {
+  bookingTablesApi,
+  type BookingTableListParams,
+  type CreateBookingTablePayload,
+  type UpdateBookingTablePayload,
+} from "./booking-tables-api";
 export { availabilityApi, type AvailabilityParams, type AvailabilityResult } from "./availability-api";
-export { bookingKeys, storeKeys, tableKeys, waitlistKeys } from "./queryKeys";
+export {
+  bookingKeys,
+  storeKeys,
+  tableKeys,
+  waitlistKeys,
+  storeThemeKeys,
+  pageConfigKeys,
+  bookingTimeSlotKeys,
+  bookingSettingKeys,
+  bookingTableKeys,
+} from "./queryKeys";
 export {
   bookingSchema,
   bookingListSchema,
@@ -49,6 +71,9 @@ export {
   bookingStatusHistorySchema,
 } from "./schemas/booking";
 export { storeSchema } from "./schemas/store";
+export { bookingTimeSlotSchema, bookingTimeSlotListSchema } from "./schemas/bookingTimeSlot";
+export { bookingTableRowSchema, bookingTableRowListSchema } from "./schemas/bookingTable";
+export { bookingSettingSchema } from "./schemas/bookingSetting";
 export {
   storesApi,
   type StoreListParams,
@@ -63,3 +88,5 @@ export { otpApi } from "./otp-api";
 export { storeThemeApi, NEUTRAL_THEME } from "./store-theme-api";
 export { pageConfigApi } from "./page-config-api";
 export { waitlistApi } from "./waitlist-api";
+export { bookingTimeSlotsApi, type BookingTimeSlotListParams } from "./booking-time-slots-api";
+export { bookingSettingsApi, type BookingSettingParams } from "./booking-settings-api";

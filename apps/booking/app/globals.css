@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theo BR-12: KHÔNG hardcode màu/font mặc định cứng ở đây (không "Maison" cream,
+   không "Cửu Vân Long" tối) — chỉ khai báo biến trung tính, giá trị thật được
+   usePageTheme() set runtime từ StoreTheme (packages/hooks/src/usePageTheme.ts). */
+:root {
+  --color-primary: #6b7280;
+  --color-bg: #ffffff;
+  --color-text: #111111;
+  --color-text-muted: #666666;
+  --font-heading: inherit;
+  --font-body: inherit;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}

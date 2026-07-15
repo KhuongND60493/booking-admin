@@ -42,3 +42,19 @@ export {
   clearBookingDraft,
   type BookingDraft,
 } from "./bookingDraft";
+export {
+  useBookingTimeSlotsQuery,
+  useCreateBookingTimeSlotMutation,
+  useUpdateBookingTimeSlotMutation,
+  useDeleteBookingTimeSlotMutation,
+} from "./useAdminBookingTimeSlots";
+export {
+  useBookingSettingQuery,
+  useUpdateBookingSettingMutation,
+} from "./useAdminBookingSettings";
+export {
+  useBookingTablesQuery,
+  useCreateBookingTableMutation,
+  useUpdateBookingTableMutation,
+  useDeleteBookingTableMutation,
+} from "./useAdminBookingTables";

@@ -1,5 +1,25 @@
 {
   "all": "Tất cả",
   "empty": "Không có dữ liệu.",
-  "loading": "Đang tải..."
+  "loading": "Đang tải...",
+  "toast": {
+    "error": {
+      "default": "Có lỗi xảy ra, vui lòng thử lại",
+      "loadTables": "Không tải được danh sách bàn, vui lòng thử lại.",
+      "saveTheme": "Lưu theme thất bại, vui lòng thử lại.",
+      "saveLayout": "Publish layout thất bại, vui lòng thử lại."
+    },
+    "success": {
+      "default": "Thao tác thành công",
+      "saveTheme": "Đã lưu theme cho store.",
+      "saveLayout": "Đã publish layout cho trang: {{page}}",
+      "createTimeSlot": "Đã tạo khung giờ",
+      "updateTimeSlot": "Đã cập nhật khung giờ",
+      "deleteTimeSlot": "Đã xoá khung giờ",
+      "saveBookingSetting": "Đã lưu cấu hình booking",
+      "createBookingTable": "Đã tạo bàn",
+      "updateBookingTable": "Đã cập nhật bàn",
+      "deleteBookingTable": "Đã xoá bàn"
+    }
+  }
 }

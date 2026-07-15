@@ -1,0 +1,81 @@
+{
+  "title": "Table management",
+  "loading": "Loading...",
+  "addButton": "+ Add table",
+  "view": {
+    "card": "Card",
+    "table": "Table"
+  },
+  "filter": {
+    "store": "Store",
+    "allStores": "All",
+    "status": "Status",
+    "selectedCount": "{{count}} selected",
+    "clear": "Clear",
+    "noResults": "No results",
+    "resetAll": "Reset"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "area": {
+    "named": "Area {{areaId}}",
+    "unassigned": "Unassigned"
+  },
+  "card": {
+    "capacity": "{{count}} seats",
+    "capacityRange": "{{min}}–{{max}} seats"
+  },
+  "column": {
+    "store": "Store",
+    "tableCode": "Table code",
+    "tableName": "Table name",
+    "area": "Area",
+    "capacity": "Capacity",
+    "status": "Status",
+    "active": "Active",
+    "actions": "Action"
+  },
+  "action": {
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "confirmDelete": {
+    "title": "Delete this table?",
+    "description": "This action cannot be undone.",
+    "ok": "Delete",
+    "cancel": "Cancel"
+  },
+  "modal": {
+    "titleAdd": "Add table",
+    "titleEdit": "Edit table",
+    "ok": "Save",
+    "cancel": "Cancel",
+    "field": {
+      "store": "Store",
+      "refId": "RefId",
+      "tableCode": "Table code",
+      "tableName": "Table name",
+      "areaId": "Area (floor, hall)",
+      "capacity": "Standard capacity",
+      "minCapacity": "Minimum guests",
+      "maxCapacity": "Maximum guests",
+      "status": "Status",
+      "isActive": "Active"
+    },
+    "error": {
+      "storeRequired": "Please select a store",
+      "tableCodeRequired": "Please enter the table code",
+      "tableNameRequired": "Please enter the table name",
+      "capacityRequired": "Please enter a valid capacity",
+      "minCapacityRequired": "Please enter a valid minimum",
+      "maxCapacityRequired": "Please enter a valid maximum",
+      "minMaxCapacity": "Minimum guests must be less than or equal to maximum"
+    }
+  },
+  "empty": {
+    "noStoreSelected": "Select a store to view tables.",
+    "noTables": "No tables found."
+  }
+}

@@ -1,8 +1,11 @@
 {
   "brandSubtitle": "Admin Portal",
   "menu": {
-    "bookings": "Danh sách booking",
+    "bookings": "Tổng quan",
     "waitlist": "Waitlist",
-    "editLayout": "Chỉnh sửa layout trang booking"
+    "editLayout": "Chỉnh sửa layout trang booking",
+    "bookingTimeSlots": "Khung giờ",
+    "bookingTables": "Bàn",
+    "bookingSettings": "Cấu hình"
   }
 }

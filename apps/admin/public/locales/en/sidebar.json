@@ -1,8 +1,11 @@
 {
   "brandSubtitle": "Admin Portal",
   "menu": {
-    "bookings": "Bookings",
+    "bookings": "Dashboard",
     "waitlist": "Waitlist",
-    "editLayout": "Edit booking page layout"
+    "editLayout": "Edit booking page layout",
+    "bookingTimeSlots": "Time slots",
+    "bookingTables": "Table",
+    "bookingSettings": "Settings"
   }
 }

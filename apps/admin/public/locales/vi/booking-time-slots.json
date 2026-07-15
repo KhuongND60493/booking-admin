@@ -1,0 +1,74 @@
+{
+  "title": "Khung giờ",
+  "empty": "Chưa có khung giờ nào.",
+  "addButton": "+ Thêm khung giờ",
+  "filter": {
+    "store": "Nhà hàng",
+    "status": "Trạng thái",
+    "dayOfWeek": "Lịch áp dụng",
+    "allDaysOfWeek": "Tất cả",
+    "allStores": "Tất cả",
+    "selectedCount": "{{count}} đã chọn",
+    "clear": "Xóa bộ lọc",
+    "noResults": "Không có kết quả",
+    "resetAll": "Đặt lại"
+  },
+  "column": {
+    "store": "Nhà hàng",
+    "storeCount": "{{count}} nhà hàng",
+    "name": "Tên",
+    "timeRange": "Khung giờ",
+    "daysOfWeek": "Lịch áp dụng",
+    "allDaysOfWeek": "Tất cả các ngày trong tuần",
+    "status": "Trạng thái",
+    "actions": "Hành động"
+  },
+  "status": {
+    "active": "Hoạt động",
+    "inactive": "Ngừng hoạt động"
+  },
+  "dayOfWeek": {
+    "monday": "Thứ 2",
+    "tuesday": "Thứ 3",
+    "wednesday": "Thứ 4",
+    "thursday": "Thứ 5",
+    "friday": "Thứ 6",
+    "saturday": "Thứ 7",
+    "sunday": "Chủ nhật"
+  },
+  "action": {
+    "edit": "Sửa",
+    "delete": "Xoá"
+  },
+  "confirmDelete": {
+    "title": "Xoá khung giờ này?",
+    "description": "Hành động này không thể hoàn tác.",
+    "ok": "Xoá",
+    "cancel": "Huỷ"
+  },
+  "modal": {
+    "titleAdd": "Thêm khung giờ",
+    "titleEdit": "Sửa khung giờ",
+    "ok": "Lưu",
+    "cancel": "Huỷ",
+    "field": {
+      "store": "Nhà hàng",
+      "storePlaceholderAll": "Tất cả nhà hàng",
+      "name": "Tên",
+      "namePlaceholder": "Ví dụ: 09:00",
+      "startTime": "Giờ bắt đầu",
+      "endTime": "Giờ kết thúc",
+      "daysOfWeek": "Lịch áp dụng",
+      "sortOrder": "Thứ tự sắp xếp",
+      "sortOrderPlaceholder": "Để trống nếu dùng mặc định",
+      "isActive": "Kích hoạt"
+    },
+    "error": {
+      "nameRequired": "Vui lòng nhập tên",
+      "startTimeRequired": "Vui lòng chọn giờ bắt đầu",
+      "endTimeRequired": "Vui lòng chọn giờ kết thúc",
+      "daysOfWeekRequired": "Chọn ít nhất 1 ngày",
+      "endTimeAfterStartTime": "Giờ kết thúc phải sau giờ bắt đầu"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "title": "Booking settings",
+  "subtitle": "Configure operational parameters that apply globally, with optional overrides per store",
+  "save": "Save changes",
+  "field": {
+    "storeSelector": "All stores",
+    "allStores": "All (Global setting)",
+    "overrideOn": "Overriding for this store — click to use the global setting",
+    "overrideOff": "Using the global setting — click to override for this store",
+    "holdDurationMinutes": "Hold duration",
+    "gracePeriodMinutes": "Grace period",
+    "maxGuestPerTable": "Max guests / table"
+  },
+  "unit": {
+    "minutes": "min",
+    "guests": "guests"
+  },
+  "guideline": {
+    "overrideMode": "Viewing settings for {{store}}. Click the lock icon on any field to override its value for this store — leave it locked to fall back to the global setting."
+  }
+}

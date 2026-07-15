@@ -12,10 +12,10 @@ function createBookingErrorMessage(err: unknown): string {
     }
     return err.message;
   }
-  return "Không thể tạo bookings, vui lòng thử lại.";
+  return "Không thể tạo booking, vui lòng thử lại.";
 }
 
-// Biến thể 1: 6 ô nhập OTP + đếm ngược + CTA xác nhận (tạo bookings thật khi thành công).
+// Biến thể 1: 6 ô nhập OTP + đếm ngược + CTA xác nhận (tạo booking thật khi thành công).
 export function OtpCodeInput1(_props: OtpCodeInputProps) {
   const [phone, setPhone] = useState("");
   const [createError, setCreateError] = useState<string | null>(null);

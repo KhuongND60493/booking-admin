@@ -5,13 +5,29 @@ export interface EndpointDefinition {
   base: string;
 }
 
+const MODULES = {
+  booking: "/booking/api",
+  masterdata: "/masterdata/api",
+} as const;
+
+function endpoint(
+  base: string,
+  service: ServiceName = ServiceName.Default,
+): EndpointDefinition {
+  return { service, base };
+}
+
 export const ENDPOINTS = {
-  bookings: { service: ServiceName.Default, base: "/order-v2/bookings" },
-  stores: { service: ServiceName.Default, base: "/masterdata/api/stores" },
-  brands: { service: ServiceName.Default, base: "/masterdata/api/concepts" },
-  pictures: { service: ServiceName.Default, base: "/masterdata/api/pictures" },
-  otp: { service: ServiceName.Default, base: "/otp" },
-  waitlist: { service: ServiceName.Default, base: "/waitlist" },
-  menu: { service: ServiceName.Default, base: "/menu" },
-  tables: { service: ServiceName.Default, base: "/search-tables" },
+  //Booking
+  bookings: endpoint(`${MODULES.booking}/bookings`),
+  otp: endpoint(`${MODULES.booking}/otp`),
+  waitlist: endpoint(`${MODULES.booking}/waitlist`),
+  menu: endpoint(`${MODULES.booking}/menu`),
+  tables: endpoint(`${MODULES.booking}/tables`),
+  timeSlots: endpoint(`${MODULES.booking}/time-slots`),
+  bookingSettings: endpoint(`${MODULES.booking}/bookings/settings`),
+  //Masterdata
+  stores: endpoint(`${MODULES.masterdata}/stores`),
+  brands: endpoint(`${MODULES.masterdata}/concepts`),
+  pictures: endpoint(`${MODULES.masterdata}/pictures`),
 } as const satisfies Record<string, EndpointDefinition>;

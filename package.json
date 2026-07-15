@@ -9,6 +9,7 @@
     "ci": "node scripts/clean.js --install",
     "cih": "node scripts/clean.js --hard --install",
     "dev": "turbo dev",
+    "admin": "yarn workspace admin dev:federation",
     "build": "turbo build",
     "lint": "turbo lint"
   },

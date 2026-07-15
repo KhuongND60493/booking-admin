@@ -18,7 +18,7 @@ class WaitlistApi extends BaseApi {
   }
 
   // NOTE: endpoint BE mới, cần BE xác nhận/triển khai trước khi dùng thật.
-  // BE nhận id + tableIds, tự tra waitlist entry và tạo bookings tương ứng.
+  // BE nhận id + tableIds, tự tra waitlist entry và tạo booking tương ứng.
   convert(id: string, tableIds: string[]): Promise<Booking> {
     return this.post<Booking>(`/${id}/convert`, { tableIds }, { validator: bookingSchema });
   }

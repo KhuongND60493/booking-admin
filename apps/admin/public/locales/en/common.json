@@ -1,5 +1,25 @@
 {
   "all": "All",
   "empty": "No data.",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "toast": {
+    "error": {
+      "default": "Something went wrong, please try again",
+      "loadTables": "Failed to load tables, please try again.",
+      "saveTheme": "Failed to save theme, please try again.",
+      "saveLayout": "Failed to publish layout, please try again."
+    },
+    "success": {
+      "default": "Done successfully",
+      "saveTheme": "Theme saved for the store.",
+      "saveLayout": "Layout published for page: {{page}}",
+      "createTimeSlot": "Time slot created",
+      "updateTimeSlot": "Time slot updated",
+      "deleteTimeSlot": "Time slot deleted",
+      "saveBookingSetting": "Booking setting saved",
+      "createBookingTable": "Table created",
+      "updateBookingTable": "Table updated",
+      "deleteBookingTable": "Table deleted"
+    }
+  }
 }

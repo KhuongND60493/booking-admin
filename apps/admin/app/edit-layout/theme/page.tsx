@@ -2,19 +2,35 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { storeThemeApi, type StoreTheme } from "@skybooking/api-client";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { storeThemeApi, storeThemeKeys, type StoreTheme } from "@skybooking/api-client";
 
 const DEMO_STORE_ID = "cuu-van-long-q1";
 
 const HEX_RE = /^#[0-9A-Fa-f]{6}$/;
 
 export default function EditLayoutThemePage() {
+  const queryClient = useQueryClient();
+  const { data: fetchedTheme } = useQuery({
+    queryKey: storeThemeKeys.detail(DEMO_STORE_ID),
+    queryFn: () => storeThemeApi.fetchTheme(DEMO_STORE_ID),
+  });
   const [theme, setTheme] = useState<StoreTheme | null>(null);
-  const [isSaving, setIsSaving] = useState(false);
 
   useEffect(() => {
-    storeThemeApi.fetchTheme(DEMO_STORE_ID).then(setTheme);
-  }, []);
+    if (fetchedTheme) setTheme(fetchedTheme);
+  }, [fetchedTheme]);
+
+  const saveMutation = useMutation({
+    mutationFn: (payload: StoreTheme) => storeThemeApi.saveTheme(DEMO_STORE_ID, payload),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: storeThemeKeys.detail(DEMO_STORE_ID) });
+    },
+    meta: {
+      successMessageKey: "toast.success.saveTheme",
+      errorMessageKey: "toast.error.saveTheme",
+    },
+  });
 
   if (!theme) return <div className="p-8 text-sm text-gray-500">Đang tải theme...</div>;
 
@@ -34,12 +50,13 @@ export default function EditLayoutThemePage() {
 
   const isValid = colorFields.every((f) => HEX_RE.test(theme.colors[f.key]));
 
-  const handleSave = async () => {
+  const handleSave = () => {
     if (!isValid) return;
-    setIsSaving(true);
-    await storeThemeApi.saveTheme(DEMO_STORE_ID, { ...theme, storeId: DEMO_STORE_ID });
-    setIsSaving(false);
-    alert("Đã lưu theme cho store.");
+    saveMutation.mutate({
+      ...theme,
+      storeId: DEMO_STORE_ID,
+      fonts: { heading: theme.fonts.heading.trim(), body: theme.fonts.body.trim() },
+    });
   };
 
   return (
@@ -114,7 +131,7 @@ export default function EditLayoutThemePage() {
 
       <button
         onClick={handleSave}
-        disabled={!isValid || isSaving}
+        disabled={!isValid || saveMutation.isPending}
         className="px-7 py-2.5 bg-amber-400 text-gray-900 rounded-lg text-xs font-semibold disabled:opacity-40"
       >
         Lưu theme

@@ -88,7 +88,7 @@
   },
   "new": {
     "title": "Tạo booking mới",
-    "subtitle": "Tạo thay khách hàng — không cần OTP",
+    "subtitle": "Tạo thay khách hàng",
     "seats": "{{count}} chỗ",
     "selectedSummary": "Đã chọn: {{tables}} bàn · {{seats}} chỗ",
     "noOtp": "Không cần OTP — Agent xác nhận trực tiếp",

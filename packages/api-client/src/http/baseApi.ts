@@ -36,13 +36,21 @@ export class BaseApi {
     return this.parse(res.data, opts?.validator);
   }
 
-  protected async post<T>(path: string, body?: unknown, opts?: DoOptions<T>): Promise<T> {
-    const res = await apiClient.post(`${this.endpoint.base}${path}`, body);
+  protected async post<T>(
+    path: string,
+    body?: unknown,
+    opts?: DoOptions<T> & { params?: Record<string, unknown> },
+  ): Promise<T> {
+    const res = await apiClient.post(`${this.endpoint.base}${path}`, body, { params: opts?.params });
     return this.parse(res.data, opts?.validator);
   }
 
-  protected async put<T>(path: string, body?: unknown, opts?: DoOptions<T>): Promise<T> {
-    const res = await apiClient.put(`${this.endpoint.base}${path}`, body);
+  protected async put<T>(
+    path: string,
+    body?: unknown,
+    opts?: DoOptions<T> & { params?: Record<string, unknown> },
+  ): Promise<T> {
+    const res = await apiClient.put(`${this.endpoint.base}${path}`, body, { params: opts?.params });
     return this.parse(res.data, opts?.validator);
   }
 

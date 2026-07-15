@@ -162,6 +162,20 @@ export interface BookingTable {
   isActive: boolean;
 }
 
+export interface BookingTableRow {
+  id: number;
+  organizationId: number;
+  storeId: number;
+  refId?: number | null;
+  tableCode?: string | null;
+  tableName?: string | null;
+  areaId: number;
+  capacity?: number | null;
+  minCapacity?: number | null;
+  maxCapacity: number;
+  isActive: boolean;
+}
+
 export interface BookingTableAssignment {
   id: number;
   bookingId: number;
@@ -221,4 +235,60 @@ export interface BookingCustomer {
   phone: string;
   email?: string;
   note?: string;
+}
+
+export enum BookingDayOfWeek {
+  Monday = 1,
+  Tuesday = 2,
+  Wednesday = 4,
+  Thursday = 8,
+  Friday = 16,
+  Saturday = 32,
+  Sunday = 64,
+}
+
+export const ALL_BOOKING_DAYS_OF_WEEK: BookingDayOfWeek[] = [
+  BookingDayOfWeek.Monday,
+  BookingDayOfWeek.Tuesday,
+  BookingDayOfWeek.Wednesday,
+  BookingDayOfWeek.Thursday,
+  BookingDayOfWeek.Friday,
+  BookingDayOfWeek.Saturday,
+  BookingDayOfWeek.Sunday,
+];
+
+export const ALL_BOOKING_DAYS_OF_WEEK_MASK = ALL_BOOKING_DAYS_OF_WEEK.reduce(
+  (sum, day) => sum + day,
+  0
+);
+
+export const BOOKING_DAY_OF_WEEK_I18N_KEY: Record<BookingDayOfWeek, string> = {
+  [BookingDayOfWeek.Monday]: "monday",
+  [BookingDayOfWeek.Tuesday]: "tuesday",
+  [BookingDayOfWeek.Wednesday]: "wednesday",
+  [BookingDayOfWeek.Thursday]: "thursday",
+  [BookingDayOfWeek.Friday]: "friday",
+  [BookingDayOfWeek.Saturday]: "saturday",
+  [BookingDayOfWeek.Sunday]: "sunday",
+};
+
+export interface BookingTimeSlot {
+  id: number;
+  organizationId: number;
+  storeIds: number[] | null;
+  name?: string | null;
+  startTime: string;
+  endTime: string;
+  isActive: boolean;
+  sortOrder?: number | null;
+  daysOfWeek: number;
+}
+
+export interface BookingSetting {
+  holdDurationMinutes: number;
+  holdDurationMinutes_OverrideForStore: boolean;
+  gracePeriodMinutes: number;
+  gracePeriodMinutes_OverrideForStore: boolean;
+  maxGuestPerTable: number;
+  maxGuestPerTable_OverrideForStore: boolean;
 }

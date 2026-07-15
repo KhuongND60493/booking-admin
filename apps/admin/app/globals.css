@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* Theo BR-12: --color-primary/--font-heading/--font-body ở đây CHỈ dùng cho
-   khu vực preview trong "Chỉnh sửa layout trang bookings" (component tái sử
+   khu vực preview trong "Chỉnh sửa layout trang booking" (component tái sử
    dụng từ @skybooking/ui) — được set runtime theo store đang chỉnh (scoped),
    KHÔNG áp dụng cho phần chrome cố định của admin (sidebar, bảng...), phần đó
    dùng trực tiếp class Tailwind màu trung tính (gray/amber) không qua CSS var.

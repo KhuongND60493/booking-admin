@@ -1,30 +1,52 @@
 import { QueryCache, QueryClient, MutationCache } from "@tanstack/react-query";
-import { message } from "antd";
-import { ApiError, BOOKING_ERROR_DEFAULT_MESSAGE_VI } from "@skybooking/api-client";
+import type { MessageInstance } from "antd/es/message/interface";
+import type { TFunction } from "i18next";
+import { ApiError, BOOKING_ERROR_I18N_KEY } from "@skybooking/api-client";
 
 declare module "@tanstack/react-query" {
   interface Register {
     queryMeta: {
+      errorMessageKey?: string;
+      errorMessageOptions?: Record<string, unknown>;
       disableErrorToast?: boolean;
     };
     mutationMeta: {
-      successMessage?: string;
-      errorMessage?: string;
+      successMessageKey?: string;
+      successMessageOptions?: Record<string, unknown>;
+      disableSuccessToast?: boolean;
+      errorMessageKey?: string;
+      errorMessageOptions?: Record<string, unknown>;
       disableErrorToast?: boolean;
     };
   }
 }
 
-function resolveErrorMessage(error: unknown, fallback?: string): string {
-  if (fallback) return fallback;
+let activeT: TFunction | undefined;
+let activeMessage: MessageInstance | undefined;
+
+export function setAdminQueryClientTranslator(t: TFunction) {
+  activeT = t;
+}
+
+export function setAdminQueryClientMessage(messageApi: MessageInstance) {
+  activeMessage = messageApi;
+}
+
+function resolveErrorMessage(
+  error: unknown,
+  fallbackKey?: string,
+  fallbackOptions?: Record<string, unknown>
+): string {
+  const t = activeT;
+  if (fallbackKey && t) return t(fallbackKey, fallbackOptions);
   if (error instanceof ApiError) {
-    if (error.errorNumber != null && BOOKING_ERROR_DEFAULT_MESSAGE_VI[error.errorNumber]) {
-      return BOOKING_ERROR_DEFAULT_MESSAGE_VI[error.errorNumber];
+    if (error.errorNumber != null && BOOKING_ERROR_I18N_KEY[error.errorNumber] && t) {
+      return t(BOOKING_ERROR_I18N_KEY[error.errorNumber], { ns: "bookings" });
     }
     return error.message;
   }
   if (error instanceof Error) return error.message;
-  return "Có lỗi xảy ra, vui lòng thử lại";
+  return t ? t("toast.error.default") : "Có lỗi xảy ra, vui lòng thử lại";
 }
 
 function makeAdminQueryClient() {
@@ -39,16 +61,22 @@ function makeAdminQueryClient() {
     queryCache: new QueryCache({
       onError: (error, query) => {
         if (query.meta?.disableErrorToast) return;
-        message.error(resolveErrorMessage(error));
+        activeMessage?.error(
+          resolveErrorMessage(error, query.meta?.errorMessageKey, query.meta?.errorMessageOptions)
+        );
       },
     }),
     mutationCache: new MutationCache({
       onSuccess: (_data, _variables, _context, mutation) => {
-        if (mutation.meta?.successMessage) message.success(mutation.meta.successMessage);
+        if (mutation.meta?.disableSuccessToast || !activeT) return;
+        const key = mutation.meta?.successMessageKey ?? "toast.success.default";
+        activeMessage?.success(activeT(key, mutation.meta?.successMessageOptions));
       },
       onError: (error, _variables, _context, mutation) => {
         if (mutation.meta?.disableErrorToast) return;
-        message.error(resolveErrorMessage(error, mutation.meta?.errorMessage));
+        activeMessage?.error(
+          resolveErrorMessage(error, mutation.meta?.errorMessageKey, mutation.meta?.errorMessageOptions)
+        );
       },
     }),
   });

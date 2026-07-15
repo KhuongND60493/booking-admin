@@ -3,7 +3,7 @@ import { SuccessActionsProps } from "../types";
 import { useBookingContext, clearBookingDraft } from "@skybooking/hooks";
 import { useRouter } from "next/navigation";
 
-// Biến thể 1: nút "Về trang chủ" + "Hủy bookings này".
+// Biến thể 1: nút "Về trang chủ" + "Hủy booking này".
 export function SuccessActions1(_props: SuccessActionsProps) {
   const { tenant } = useBookingContext();
   const router = useRouter();

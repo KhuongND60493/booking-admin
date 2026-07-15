@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@skybooking/hooks": "*",
-    "@skybooking/api-client": "*"
+    "@skybooking/api-client": "*",
+    "classnames": "2.5.1",
+    "tailwind-merge": "2.3.0"
   },
   "devDependencies": {
     "@types/react": "^19",

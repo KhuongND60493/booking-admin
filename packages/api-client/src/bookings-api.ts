@@ -22,8 +22,8 @@ export interface BookingListResult {
 function toApiParams(params: BookingQueryParams) {
   return {
     search: params.keyword,
-    storeIds: params.storeIds.join(","),
-    status: params.status?.join(","),
+    storeIds: params.storeIds,
+    status: params.status,
     startDate: params.startDate,
     endDate: params.endDate,
     offset: params.offset,

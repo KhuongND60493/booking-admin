@@ -1,0 +1,81 @@
+{
+  "title": "Quản lý bàn",
+  "loading": "Đang tải...",
+  "addButton": "+ Thêm bàn",
+  "view": {
+    "card": "Thẻ",
+    "table": "Bảng"
+  },
+  "filter": {
+    "store": "Nhà hàng",
+    "allStores": "Tất cả",
+    "status": "Trạng thái",
+    "selectedCount": "{{count}} đã chọn",
+    "clear": "Xóa bộ lọc",
+    "noResults": "Không có kết quả",
+    "resetAll": "Đặt lại"
+  },
+  "status": {
+    "active": "Hoạt động",
+    "inactive": "Ngừng hoạt động"
+  },
+  "area": {
+    "named": "Khu {{areaId}}",
+    "unassigned": "Chưa phân khu"
+  },
+  "card": {
+    "capacity": "{{count}} chỗ ngồi",
+    "capacityRange": "{{min}}–{{max}} chỗ ngồi"
+  },
+  "column": {
+    "store": "Nhà hàng",
+    "tableCode": "Mã bàn",
+    "tableName": "Tên bàn",
+    "area": "Khu vực",
+    "capacity": "Sức chứa",
+    "status": "Trạng thái",
+    "active": "Kích hoạt",
+    "actions": "Hành động"
+  },
+  "action": {
+    "edit": "Sửa",
+    "delete": "Xoá"
+  },
+  "confirmDelete": {
+    "title": "Xoá bàn này?",
+    "description": "Hành động này không thể hoàn tác.",
+    "ok": "Xoá",
+    "cancel": "Huỷ"
+  },
+  "modal": {
+    "titleAdd": "Thêm bàn",
+    "titleEdit": "Sửa bàn",
+    "ok": "Lưu",
+    "cancel": "Huỷ",
+    "field": {
+      "store": "Nhà hàng",
+      "refId": "RefId",
+      "tableCode": "Mã bàn",
+      "tableName": "Tên bàn",
+      "areaId": "Khu vực (tầng, sảnh)",
+      "capacity": "Sức chứa tiêu chuẩn",
+      "minCapacity": "Số khách tối thiểu",
+      "maxCapacity": "Số khách tối đa",
+      "status": "Trạng thái",
+      "isActive": "Kích hoạt"
+    },
+    "error": {
+      "storeRequired": "Vui lòng chọn nhà hàng",
+      "tableCodeRequired": "Vui lòng nhập mã bàn",
+      "tableNameRequired": "Vui lòng nhập tên bàn",
+      "capacityRequired": "Vui lòng nhập sức chứa hợp lệ",
+      "minCapacityRequired": "Vui lòng nhập số khách tối thiểu hợp lệ",
+      "maxCapacityRequired": "Vui lòng nhập số khách tối đa hợp lệ",
+      "minMaxCapacity": "Số khách tối thiểu phải nhỏ hơn hoặc bằng tối đa"
+    }
+  },
+  "empty": {
+    "noStoreSelected": "Chọn nhà hàng để xem danh sách bàn.",
+    "noTables": "Không có bàn nào."
+  }
+}

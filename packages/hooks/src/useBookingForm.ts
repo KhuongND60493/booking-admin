@@ -1,15 +1,16 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import {
   tablesApi,
+  tableKeys,
   BookingSource,
   DEFAULT_ORGANIZATION_ID,
   type Booking,
   type CreateBookingPayload,
   type Store,
-  type TableResult,
 } from "@skybooking/api-client";
 
 const EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -137,8 +138,6 @@ export function useBookingForm(
   const initialState = useMemo(() => buildInitialState(initialBooking), [initialBooking]);
 
   const [state, setState] = useState<BookingFormState>(initialState);
-  const [tables, setTables] = useState<TableResult[]>([]);
-  const [isLoadingTables, setIsLoadingTables] = useState(false);
 
   const isDirty = useMemo(
     () => JSON.stringify(state) !== JSON.stringify(initialState),
@@ -166,21 +165,19 @@ export function useBookingForm(
   const setCustomer = (patch: Partial<BookingFormCustomer>) =>
     setState((s) => ({ ...s, customer: { ...s.customer, ...patch } }));
 
-  const loadTables = async () => {
-    if (!state.storeId || !state.date || !state.time) return;
-    setIsLoadingTables(true);
-    try {
-      const result = await tablesApi.search({
-        storeId: state.storeId,
-        date: state.date,
-        time: state.time,
-        partySize: state.partySize,
-      });
-      setTables(result);
-    } finally {
-      setIsLoadingTables(false);
-    }
+  const tablesSearchParams = {
+    storeId: state.storeId ?? undefined,
+    date: state.date,
+    time: state.time,
+    partySize: state.partySize,
   };
+
+  const { data: tables = [], isLoading: isLoadingTables } = useQuery({
+    queryKey: tableKeys.search(tablesSearchParams),
+    queryFn: () => tablesApi.search(tablesSearchParams),
+    enabled: !!state.storeId && !!state.date && !!state.time,
+    meta: { errorMessageKey: "toast.error.loadTables" },
+  });
 
   const timeSlots = useMemo(() => {
     const store = stores.find((s) => String(s.id) === state.storeId);
@@ -225,10 +222,10 @@ export function useBookingForm(
       partySize: state.partySize,
       tableIds: state.selectedTableIds,
       customer: {
-        name: state.customer.name,
-        phone: state.customer.phone,
-        email: state.customer.email || undefined,
-        note: state.customer.note || undefined,
+        name: state.customer.name.trim(),
+        phone: state.customer.phone.trim(),
+        email: state.customer.email.trim() || undefined,
+        note: state.customer.note.trim() || undefined,
       },
     });
   };
@@ -250,7 +247,6 @@ export function useBookingForm(
     timeSlots,
     totalCapacity,
     isLoadingTables,
-    loadTables,
     isDirty,
     isValid,
     phoneError,

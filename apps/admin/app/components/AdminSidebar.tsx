@@ -8,7 +8,10 @@ import { LanguageSwitcher } from "../i18n/LanguageSwitcher";
 const MENUS = [
   { href: "/bookings", labelKey: "menu.bookings" },
   { href: "/waitlist", labelKey: "menu.waitlist" },
+  { href: "/booking-time-slots", labelKey: "menu.bookingTimeSlots" },
+  { href: "/booking-tables", labelKey: "menu.bookingTables" },
   { href: "/edit-layout", labelKey: "menu.editLayout" },
+  { href: "/booking-settings", labelKey: "menu.bookingSettings" },
 ];
 
 export function AdminSidebar() {

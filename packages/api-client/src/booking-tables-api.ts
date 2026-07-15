@@ -1,27 +1,43 @@
-import { z } from "zod";
 import { BaseApi } from "./http/baseApi";
 import { ENDPOINTS } from "./config/endpoints";
-import type { BookingTable } from "./types";
-import { bookingTableSchema } from "./schemas/booking";
-
-const bookingTableListSchema = z.array(bookingTableSchema);
+import { DEFAULT_ORGANIZATION_ID } from "./config/organization";
+import type { BookingTableRow } from "./types";
+import { bookingTableRowSchema, bookingTableRowListSchema } from "./schemas/bookingTable";
 
 export interface BookingTableListParams {
-  storeId: number;
+  orgId?: number;
+  storeIds?: number[];
   isActive?: boolean;
+  [key: string]: unknown;
 }
+
+export type CreateBookingTablePayload = Omit<BookingTableRow, "id">;
+export type UpdateBookingTablePayload = BookingTableRow;
 
 class BookingTablesApi extends BaseApi {
   constructor() {
-    super(ENDPOINTS.bookings);
+    super(ENDPOINTS.tables);
   }
 
-  list(params: BookingTableListParams): Promise<BookingTable[]> {
-    return this.get<BookingTable[]>(
-      "/tables",
-      { storeId: params.storeId, isActive: params.isActive },
-      { validator: bookingTableListSchema }
+  list(params: BookingTableListParams): Promise<BookingTableRow[]> {
+    const { storeIds, orgId, ...rest } = params;
+    return this.get<BookingTableRow[]>(
+      "",
+      { ...rest, storeIds, orgId: orgId ?? DEFAULT_ORGANIZATION_ID },
+      { validator: bookingTableRowListSchema }
     );
+  }
+
+  create(data: CreateBookingTablePayload): Promise<BookingTableRow> {
+    return this.post<BookingTableRow>("", data, { validator: bookingTableRowSchema });
+  }
+
+  update(data: UpdateBookingTablePayload): Promise<BookingTableRow> {
+    return this.put<BookingTableRow>("", data, { validator: bookingTableRowSchema });
+  }
+
+  deleteOne(id: number): Promise<void> {
+    return this.delete<void>(`/${id}`);
   }
 }
 

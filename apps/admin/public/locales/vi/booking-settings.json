@@ -1,0 +1,21 @@
+{
+  "title": "Cấu hình booking",
+  "subtitle": "Thiết lập tham số vận hành áp dụng chung, có thể ghi đè riêng theo từng nhà hàng",
+  "save": "Lưu thay đổi",
+  "field": {
+    "storeSelector": "Nhà hàng",
+    "allStores": "Tất cả (Cấu hình chung)",
+    "overrideOn": "Đang ghi đè riêng — bấm để dùng lại cấu hình chung",
+    "overrideOff": "Đang dùng cấu hình chung — bấm để ghi đè riêng",
+    "holdDurationMinutes": "Thời gian giữ bàn",
+    "gracePeriodMinutes": "Thời gian ân hạn",
+    "maxGuestPerTable": "Số khách tối đa / bàn"
+  },
+  "unit": {
+    "minutes": "phút",
+    "guests": "khách"
+  },
+  "guideline": {
+    "overrideMode": "Đang xem cấu hình của {{store}}. Bấm biểu tượng khóa ở mỗi mục để ghi đè giá trị riêng cho nhà hàng này — để nguyên khóa sẽ tự động dùng lại cấu hình chung."
+  }
+}

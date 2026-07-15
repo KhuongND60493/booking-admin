@@ -1,0 +1,74 @@
+{
+  "title": "Time slots",
+  "empty": "No time slots yet.",
+  "addButton": "+ Add time slot",
+  "filter": {
+    "store": "Store",
+    "status": "Status",
+    "dayOfWeek": "Schedule",
+    "allDaysOfWeek": "All",
+    "allStores": "All stores",
+    "selectedCount": "{{count}} selected",
+    "clear": "Clear",
+    "noResults": "No results",
+    "resetAll": "Reset"
+  },
+  "column": {
+    "store": "Store",
+    "storeCount": "{{count}} stores",
+    "name": "Name",
+    "timeRange": "Time range",
+    "daysOfWeek": "Schedule",
+    "allDaysOfWeek": "All days of the week",
+    "status": "Status",
+    "actions": "Action"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "dayOfWeek": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday"
+  },
+  "action": {
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "confirmDelete": {
+    "title": "Delete this time slot?",
+    "description": "This action cannot be undone.",
+    "ok": "Delete",
+    "cancel": "Cancel"
+  },
+  "modal": {
+    "titleAdd": "Add time slot",
+    "titleEdit": "Edit time slot",
+    "ok": "Save",
+    "cancel": "Cancel",
+    "field": {
+      "store": "Store",
+      "storePlaceholderAll": "All stores",
+      "name": "Name",
+      "namePlaceholder": "e.g. 09:00",
+      "startTime": "Start time",
+      "endTime": "End time",
+      "daysOfWeek": "Schedule",
+      "sortOrder": "Sort order",
+      "sortOrderPlaceholder": "Leave empty for default",
+      "isActive": "Active"
+    },
+    "error": {
+      "nameRequired": "Name is required",
+      "startTimeRequired": "Start time is required",
+      "endTimeRequired": "End time is required",
+      "daysOfWeekRequired": "Select at least one day",
+      "endTimeAfterStartTime": "End time must be after start time"
+    }
+  }
+}
